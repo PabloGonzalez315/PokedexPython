@@ -1,0 +1,28 @@
+@import "__mixins.scss";
+@import "__variables.scss";
+
+.Header__nav {
+    li{
+        @include navenlinea();
+        a{
+            color: map-get($map: mapexample, $key: color-txt-nav);
+            text-decoration: none;
+                &:hover{
+                    @include nav-hov;
+                }
+        } 
+    }
+}
+
+.p3 {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px #000000;
+}
+
+.p4 {
+    @extend .p3;
+    font-size: 2vw;
+
+}
