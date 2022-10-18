@@ -3,7 +3,7 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #0069e1;
-    background: url(.../static/images/header-background-sticky.png);
+    background: url(../images/header-background-sticky.png);
     background-size: cover;
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 .jumbo-nav .navigation-wrapper {
-    background: url(.../static/images/hero-skyline.jpg) no-repeat;
+    background: url(../images/background3.jpg) no-repeat;
     min-height: 200px;
     background-position: center top;
     background-size: cover;
