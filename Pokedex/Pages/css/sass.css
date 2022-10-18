@@ -1,0 +1,28 @@
+.Header__nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.Header__nav li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.Header__nav li a:hover {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.p3, .p4 {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px #000000;
+}
+
+.p4 {
+  font-size: 2vw;
+}
+
+
+/*# sourceMappingURL=sass.css.map */

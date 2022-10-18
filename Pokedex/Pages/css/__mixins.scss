@@ -1,0 +1,13 @@
+@mixin navenlinea {
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+
+@mixin nav-hov {
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
