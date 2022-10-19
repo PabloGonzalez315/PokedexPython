@@ -17,7 +17,7 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
     </head>
-    {% block contenido %}
+    
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -60,7 +60,7 @@
                 <!--/.navbar-collapse -->
             </div>
         </nav>
-
+        {% block contenido %}
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <nav class="jumbo-nav">
             <div class="navigation-wrapper">
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </nav>
-
+        
         <div class="container">
             <br/>
             <img src="{%static 'images/latest.png'%}" />
@@ -149,22 +149,22 @@
                         </div>
                     </nav>
         
-    {% endblock %}
-            <footer>
-                <div class="header-logo">
-                    <a href="#">
-                        <img src="{%static 'images/Python.png'%}" />
-                    </a>
+                    <footer>
+                        <div class="header-logo">
+                            <a href="#">
+                                <img src="{%static 'images/Python.png'%}" />
+                            </a>
+                        </div>
+                        <p>&copy; 2022 Company, Inc.</p>
+                    </footer>
                 </div>
-                <p>&copy; 2022 Company, Inc.</p>
-            </footer>
-        </div>
-        <!-- /container -->
-
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="{%static 'js/bootstrap.min.js'%}"></script>
+                <!-- /container -->
+                
+                <!-- Bootstrap core JavaScript
+                    ================================================== -->
+                    <!-- Placed at the end of the document so the pages load faster -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+                    {% endblock %}
     </body>
 </html>

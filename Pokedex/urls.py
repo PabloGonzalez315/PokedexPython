@@ -7,6 +7,7 @@ urlpatterns = [
     path("about/", about),
     path("login/", login),
     path("register/", register),
-    
+    path("pokemon/", pokemon),
+    path("buscar_pokemon/", buscar_pokemon),
 ]
 
