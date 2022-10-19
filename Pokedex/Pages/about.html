@@ -1,0 +1,81 @@
+  {% extends "home.html" %}
+  {% load static %}
+  {% block contenido %} 
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/Pokedex/home/">Pokedex Django</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            <li><a href="/Pokedex/home/">Home</a></li>
+            <li class="active"><a href="/Pokedex/about/">About us!</a></li>
+            <li><a href="/Pokedex/login/">Login</a></li>
+            <li><a href="/Pokedex/register/">Sing Up!</a></li>
+          </ul>
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+     <nav class="jumbo-nav">
+      <div class="navigation-wrapper">
+        <div class="navigation">
+          <div class="header-logo">
+            <a href="/Pokedex/home/">
+              <img src="{%static 'images/pokedex.webp'%}" />
+            </a>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      
+        <!-- Example row of columns -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="pokeball-wrapper">
+                <img src="./images/pokeball.png" />
+              </div>
+              <div class="enhanced">
+                <h2>Herrera Omar</h2>
+                <img class="pokemon small" src="./images/pokemon2.png" />
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="pokeball-wrapper">
+                <img src="./images/pokeball.png" />
+              </div>
+            <div class="enhanced">
+                <h2>Gonzalez Pablo</h2>
+                <img class="pokemon small" src="./images/pokemon3.png" />
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
+             </div>
+           </div>
+          </div>
+        </div>
+        
+      </div>
+    </nav>
+    {% endblock %}
