@@ -1,14 +1,19 @@
-from turtle import width
 from django.db import models
 
 # Create your models here.
 
-class Pokemon(models.Model):
-    number=models.IntegerField()
-    name=models.CharField(max_length=30)
-    type1=models.CharField(max_length=30)
-    type2=models.CharField(max_length=30)
-    ability=models.CharField(max_length=30)
-    weak=models.CharField(max_length=30)
-    description=models.CharField(max_length=300)
+class Pokemons(models.Model):
+    nombre=models.CharField(max_length=30)
+    numero=models.IntegerField()
+    tipo1=models.CharField(max_length=30)
+    tipo2=models.CharField(max_length=30)
+    imagen = models.CharField(max_length=400)
+    habilidad=models.CharField(max_length=30)
+    debilidad=models.CharField(max_length=30)
+  
     
+class Usuarios(models.Model):
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    edad = models.CharField(max_length=30)
+    email= models.EmailField()
