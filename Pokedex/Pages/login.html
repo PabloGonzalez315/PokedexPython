@@ -1,24 +1,6 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="ThemeFactory.net">
-
-    <title>Pokedex</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./css/jumbotron.css" rel="stylesheet">
-
-  </head>
-
+  {% extends "home.html" %}
+  {% load static %}
+  {% block contenido %} 
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,10 +17,10 @@
         <div id="navbar" class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About us!</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sing Up!</a></li>
+            <li><a href="/Pokedex/home/">Home</a></li>
+            <li><a href="/Pokedex/about/">About us!</a></li>
+            <li class="active"><a href="/Pokedex/login/">Login</a></li>
+            <li><a href="/Pokedex/register/">Sing Up!</a></li>
           </ul>
 
         </div><!--/.navbar-collapse -->
@@ -50,8 +32,8 @@
       <div class="navigation-wrapper">
         <div class="navigation">
           <div class="header-logo">
-            <a href="#">
-              <img src="../static/images/pokedex.webp" />
+            <a href="/Pokedex/home/">
+              <img src="{%static 'images/pokedex.webp'%}" />
             </a>
           </div>
         </div>
@@ -60,9 +42,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
+              <img src="{%static 'images/login.png'%}" class="img-responsive" alt="Login">
               <form>
                 <!-- Email input -->
-                <p class="text-center">Login</p>
                 <div class="form-outline mb-4">
                   <input type="email" id="form2Example1" class="form-control" />
                   <label class="form-label" for="form2Example1">Email address</label>
@@ -87,31 +69,11 @@
               
                 <!-- Register buttons -->
                 <div class="text-center">
-                  <p><b>Not a member? <a href="#!">Register</a></b></p>
+                  <p><b>Not a member? <a href="/Pokedex/register/">Sing Up!</a></b></p>
                 </div>
               </form>
             </div>
           </div>
         </div>
-        
-
     </nav>
-
-      <footer>
-        <div class="header-logo">
-          <a href="#">
-            <img src="../static/images/Python.png" />
-          </a>
-        </div>
-        <p>&copy; 2022 Company, Inc.</p>
-      </footer>
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-  </body>
-</html>
+    {% endblock %}
