@@ -1,55 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
 {% extends "home.html" %}
 {% load static %}
 
 
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css\bootstrap.min.css'%}">
 <body>
     {% block contenido %} 
     <h1 class="texto">Pokemon</h1>
     <h1 class="texto">Registrar Pokemon</h1>
 
-    <div>
+    
+         
         <form class="fieldset" action="/Pokedex/pokemon/" method="POST">
-            {% csrf_token %}    
-                <div>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" placeholder="">
+            {% csrf_token %}  
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    <input class="form-control" type="text" name="nombre" placeholder="">
                 </div>
 
-                <div>
-                    <label for="apellido">Numero</label>
-                    <input type="text" name="numero" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Numero</span>
+                    <input class="form-control" type="text" name="numero" placeholder="">
                 </div>
 
-                <div>
-                    <label for="fechanacimiento">tipo1</label>
-                    <input type="text" name="tipo1" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">tipo1</span>
+                    <input class="form-control" type="text" name="tipo1" placeholder="">
                 </div>
 
-                <div>
-                    <label for="dni">tipo2</label>
-                    <input type="text" name="tipo2" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">tipo2</span>
+                    <input class="form-control" type="text" name="tipo2" placeholder="">
                 </div>
 
-                <div>
-                    <label for="cuil">Habilidad</label>
-                    <input type="text" name="habilidad" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Habilidad</span>
+                    <input class="form-control" type="text" name="habilidad" placeholder="">
                 </div>
 
-                <div>
-                    <label for="wwid">debilidad</label>
-                    <input type="text" name="debilidad" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">debilidad</span>
+                    <input class="form-control" type="text" name="debilidad" placeholder="">
                 </div>
-                <div>
-                    <label for="wwid">Imagen</label>
-                    <input type="text" name="imagen" placeholder="">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Imagen</span>
+                    <input class="form-control" type="text" name="imagen" placeholder="">
                 </div>
 
-                <div>
+                <div class="input-group mb-3">
                     <button type="submit" value="Enviar" class="btn btn-primary btndj mt-3">Enviar</button>
                 </div>
         </form>
-    </div>
+    
+
     <br>
     <h1 class="texto">Buscar Pokemon</h1>
     <!-- BUSCAR -->
