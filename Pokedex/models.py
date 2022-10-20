@@ -7,7 +7,7 @@ class Pokemons(models.Model):
     numero=models.IntegerField()
     tipo1=models.CharField(max_length=30)
     tipo2=models.CharField(max_length=30)
-    imagen = models.CharField(max_length=400)
+    imagen = models.ImageField(null=True, blank=True)
     habilidad=models.CharField(max_length=30)
     debilidad=models.CharField(max_length=30)
   
