@@ -4,7 +4,7 @@ from unicodedata import name
 from unittest import loader
 from xml.dom.minidom import Document
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from Pokedex.models import Pokemons, Usuarios
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
@@ -14,6 +14,13 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.decorators import login_required
+import datetime
+from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -26,8 +33,8 @@ def about(request):
     return render(request, "about.html")
 
 
-def login(request):
-    return render(request, "login.html")
+##def login(request):
+##    return render(request, "login.html")
 
 
 def register(request):
@@ -93,3 +100,32 @@ def delete_pokemons(request, pokemon_id):
 
     pokemons = Pokemons.objects.all()    
     return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
+
+def login_request(request):
+
+    if request.method == "POST":
+
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request, user)                
+                return redirect("home")
+            else:                
+                return redirect("login")
+                
+        else:
+            return redirect("login")
+    
+    form = AuthenticationForm()
+
+    return render(request,"login.html",{"form":form})
+
+def logout_request(request):
+    logout(request)
+    return redirect("home")   
