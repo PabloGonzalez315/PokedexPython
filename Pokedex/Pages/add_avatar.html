@@ -27,7 +27,7 @@
             <li><a href="/Pokedex/about/">About us!</a></li>
 
             {% if not request.user.is_authenticated %}
-            <li class="active"><a href="/Pokedex/login/">Login</a></li>
+            <li><a href="/Pokedex/login/">Login</a></li>
             <li><a href="/Pokedex/register/">Sing Up!</a></li>
             {% endif %}
 
@@ -55,43 +55,41 @@
           </div>
         </div>
         
-
-        <!-- Example row of columns -->
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="{%static 'images/login.png'%}" class="img-responsive" alt="Login">
-              <form method="POST">
-              {% csrf_token %}
-                  
-
-                  <div class="form-outline mb-4">
-                    <label class="form-label-" for="id_username"></label>
-                    <input class="form-control" type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" placeholder="Username">
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="id_password"></label>    
-                    <input class="form-control" type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
- 
-                  </div>
-                        
-                  <br>
-                  <input type="submit" class="btn btn-primary btn-block mb-4" value="Sing In">        
-                  
-                  <div class="text-center">
-                    <p><b>Not a member? <a href="/Pokedex/register/">Sing Up!</a></b></p>
-                  </div>
-
-                <br>
-                <br>
-                <br>
-                         
-              </form>
-            </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="col-lg-3 mb-5" style="margin-left: auto; margin-right: auto;">
+          <div class="card h-100 shadow border-0">            
+              <div class="card-body p-4">
+                  <h1>Avatar</h1>
+                  <hr>
+                  <form enctype="multipart/form-data" action="" method="POST">
+                      {% csrf_token %}
+                          <table>
+                      
+                              {{form.as_table}}
+                      
+                          </table>
+                          <br>
+                          <input type="submit" class="btn btn-primary" value="Guardar">
+                  </form>                                                 
+              </div>                                
           </div>
-        </div>
-    </nav>
+      </div>
+
+      
     
     {% endblock %}
 
