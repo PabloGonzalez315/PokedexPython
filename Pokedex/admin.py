@@ -4,4 +4,4 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Pokemons)
-
+admin.site.register(Avatar)

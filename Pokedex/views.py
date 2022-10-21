@@ -151,7 +151,7 @@ def agregar_avatar(request):
             avatar.save()
 
             messages.success(request, "El avatar se agrego exitosamente.") 
-            return redirect("editar_perfil")
+            return redirect("home")
 
     else:
 
