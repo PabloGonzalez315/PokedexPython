@@ -1,89 +1,101 @@
-  {% extends "home.html" %}
-  {% load static %}
-  {% block contenido %} 
-  <body>
+{% extends "home.html" %}
+{% load static %}
+{% block contenido %} 
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/Pokedex/home/">Pokedex Django</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
+<body>
 
-          <ul class="nav navbar-nav">
-            <li><a href="/Pokedex/home/">Home</a></li>
-            <li><a href="/Pokedex/about/">About us!</a></li>
-            <li><a href="/Pokedex/login/">Login</a></li>
-            <li class="active"><a href="/Pokedex/register/">Sing Up!</a></li>
-          </ul>
-
-        </div><!--/.navbar-collapse -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Pokedex Django</a>
       </div>
-    </nav>
+      <div id="navbar" class="navbar-collapse collapse">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-     <nav class="jumbo-nav">
-      <div class="navigation-wrapper">
-        <div class="navigation">
-          <div class="header-logo">
-            <a href="/Pokedex/home/">
-              <img src="{%static 'images/pokedex.webp'%}" />
-            </a>
-          </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/Pokedex/home/">Home</a></li>
+          <li><a href="/Pokedex/about/">About us!</a></li>
+          <li><a href="/Pokedex/login/">Login</a></li>
+          <li class="active"><a href="/Pokedex/register/">Sing Up!</a></li>
+        </ul>
+
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+   <nav class="jumbo-nav">
+    <div class="navigation-wrapper">
+      <div class="navigation">
+        <div class="header-logo">
+          <a href="/Pokedex/home/">
+            <img src="{%static 'images/pokedex.webp'%}" />
+          </a>
         </div>
-      
-        <!-- Example row of columns -->
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <form>
-
+      </div>
+    
+      <!-- Example row of columns -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{%static 'images/register.png'%}" class="header-logo" alt="Register">
+            <form method="POST">
+            {% csrf_token %}
                 
-                <!-- Email input -->
-                <img src="{%static 'images/register.png'%}" class="header-logo" alt="Register">
+
                 <div class="form-outline mb-4">
-                  <input type="email" id="form2Example3" class="form-control" />
-                  <label class="form-label" for="form2Example3">Username</label>
+                  <label class="form-label" for="id_username"></label>
+                  <input class="form-control" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" placeholder="Username">
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form2Example1" class="form-control" />
-                  <label class="form-label" for="form2Example1">Email address</label>
+                  <label class="form-label" for="id_email"></label>
+                  <input class="form-control" type="email" name="email" required="" id="id_email" placeholder="Email">
                 </div>
-              
-                <!-- Password input -->
+
                 <div class="form-outline mb-4">
-                  <input type="password" id="form2Example2" class="form-control" />
-                  <label class="form-label" for="form2Example2">Password</label>
+                  <label class="form-label" for="id_password1"></label>
+                  <input class="form-control" type="password" name="password1" required="" id="id_password1" placeholder="Create Password">
                 </div>
-              
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                  <div class="col d-flex justify-content-center">
-                    <!-- Checkbox -->
-                  </div>
-              
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="id_password2"></label>
+                  <input class="form-control" type="password" name="password2" required="" id="id_password2" placeholder="Confirm Password">
                 </div>
-              
-                <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4">Sign Up</button>
-              
-                <!-- Register buttons -->
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="id_first_name"></label>
+                  <input class="form-control" type="text" name="first_name" id="id_first_name" placeholder="Name">
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="id_last_name"></label>
+                  <input class="form-control" type="text" name="last_name" id="id_last_name" placeholder="Last Name">
+                </div>
+                      
+                <br>
+                <input type="submit" class="btn btn-primary btn-block mb-4" value="Sing Up">        
+                
                 <div class="text-center">
                   <p><b>yo're alrealdy member? <a href="/Pokedex/login/">Log In!</a></b></p>
                 </div>
-              </form>
-            </div>
+
+              <br>
+              <br>
+              <br>
+                       
+            </form>
           </div>
         </div>
-        
-
-    </nav>
-
-    {% endblock %}
+      </div>
+  </nav>
+  {% endblock %}
