@@ -51,9 +51,7 @@
                         {% if request.user.is_authenticated %}
                         <li><a href="/Pokedex/logout">Log Out!</a></li>
                         <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
-                        <li><img src="{{url}}" style="height: 40px; width: 40px; "><li>
-                        
-
+                        <li><a href="/Pokedex/edit_user/"><img src="{{url}}" style="height: 40px; width: 40px; "></a><li>
         
                         {% endif %}
 
