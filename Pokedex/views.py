@@ -40,8 +40,12 @@ def pokemon(request):
         pokemon = Pokemons(nombre=request.POST["nombre"], numero=request.POST["numero"], tipo1=request.POST["tipo1"],
                            tipo2=request.POST["tipo2"], habilidad=request.POST["habilidad"], debilidad=request.POST["debilidad"],  imagen=request.POST["imagen"])
         pokemon.save()
+<<<<<<< Updated upstream
         return render(request, "home.html")
     return render(request, "pokemon.html")
+=======
+      
+>>>>>>> Stashed changes
 
 
 def buscar_pokemon(request):
