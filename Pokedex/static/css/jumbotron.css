@@ -132,3 +132,15 @@ img.pokemon.small {
     border-radius: 20px !important;
     margin-top: 8px;
 }
+
+.backCard {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 350px;
+    height: 200px;
+    margin-top: 30px;
+    background: rgb(252, 242, 242);
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+}
