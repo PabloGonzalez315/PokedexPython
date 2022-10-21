@@ -46,13 +46,7 @@ def pokemon(request):
         pokemon = Pokemons(nombre=request.POST["nombre"], numero=request.POST["numero"], tipo1=request.POST["tipo1"],
                            tipo2=request.POST["tipo2"], habilidad=request.POST["habilidad"], debilidad=request.POST["debilidad"],  imagen=request.POST["imagen"])
         pokemon.save()
-        avatar = Avatar.objects.filter(user = request.user.id)
-        try:
-            avatar = avatar[0].image.url
-        except:
-            avatar = None
-        return render(request, 'home.html', {'avatar': avatar})
-    return render(request, "pokemon.html")
+      
 
 
 def buscar_pokemon(request):
