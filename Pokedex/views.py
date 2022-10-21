@@ -6,7 +6,7 @@ from unittest import loader
 from xml.dom.minidom import Document
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from Pokedex.models import *
+from Pokedex.models import Pokemons, Usuarios
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.views import PasswordChangeView
@@ -40,7 +40,6 @@ def pokemon(request):
         pokemon = Pokemons(nombre=request.POST["nombre"], numero=request.POST["numero"], tipo1=request.POST["tipo1"],
                            tipo2=request.POST["tipo2"], habilidad=request.POST["habilidad"], debilidad=request.POST["debilidad"],  imagen=request.POST["imagen"])
         pokemon.save()
-<<<<<<< Updated upstream
         return render(request, "home.html")
     return render(request, "pokemon.html")
 =======
@@ -57,6 +56,42 @@ def buscar_pokemon(request):
         respuesta = "No se enviaron datos"
     return HttpResponse(respuesta)
 
+def create_pokemons(request):
+    if request.method == 'POST':
+        pokemon = Pokemons(nombre = request.POST['nombre'], numero = request.POST['numero'], tipo1 = request.POST['tipo1'])
+        pokemon.save()
+        pokemons = Pokemons.objects.all()    
+        return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
+    return render(request, "pokemonsCrud/create_pokemon.html")
+
+def read_pokemons(request=None):
+    pokemons = Pokemons.objects.all() #Trae todo
+    return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
+
+def update_pokemons(request, pokemon_id):
+    pokemon = Pokemons.objects.get(id = pokemon_id)
+
+    if request.method == 'POST':
+        formulario = form_pokemons(request.POST)
+
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            pokemon.nombre = informacion['nombre']
+            pokemon.numero = informacion['apellido']
+            pokemon.tipo1 = informacion['email']
+            pokemon.save()
+            pokemons = Pokemons.objects.all() #Trae todo
+            return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
+    else:
+        formulario = form_pokemons(initial={'nombre': pokemon.nombre, 'numero': pokemon.numero, 'tipo1': pokemon.tipo1})
+    return render(request,"pokemonsCrud/update_pokemon.html", {"formulario": formulario})
+
+def delete_pokemons(request, pokemon_id):
+    pokemon = Pokemons.objects.get(id =  pokemon_id)
+    pokemon.delete()
+
+    pokemons = Pokemons.objects.all()    
+    return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
 
 def login_request(request):
 
