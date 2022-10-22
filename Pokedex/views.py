@@ -198,25 +198,32 @@ def agregar_avatar(request):
 
             avatar.save()
 
-            messages.success(request, "El avatar se agrego exitosamente.")
+            messages.success(request, "El avatar se agrego exitosamente.") 
             return redirect("home")
 
     else:
 
         form = AvatarForm()
 
-    return render(request, "add_avatar.html", {"form": form})
-
+    
+    return render(request, "add_avatar.html", {"form":form})
 
 class cambiar_password(PasswordChangeView):
     form = PasswordChangeForm
-    success_url = reverse_lazy('editar_perfil')
+    success_url = reverse_lazy('edit_user') 
 
     def get_context_data(self, *args, **kwargs):
         contexto = super(cambiar_password, self).get_context_data()
-        mensaje = messages.success(
-            self.request, 'La contraseña se cambio correctamente')
+        mensaje = messages.success(self.request, 'La contraseña se cambio correctamente')
 
-        contexto['mensaje'] = mensaje
+        contexto['mensaje']=mensaje
 
         return contexto
+
+
+@login_required
+def pic(request):
+
+    avatares = Avatar.objects.filter(user=request.user.id)
+
+    return render(request, 'home.html', {"url":avatares[0].imagen.url})

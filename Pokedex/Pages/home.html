@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
     </head>
     <body>
+        {% block contenido %}
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -50,7 +51,8 @@
                         {% if request.user.is_authenticated %}
                         <li><a href="/Pokedex/logout">Log Out!</a></li>
                         <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
-                        <li><a href="/Pokedex/edit_user/"><img src="{{url}}" style="height: 40px; width: 40px; "></a><li>
+                        <li><a href="/Pokedex/edit_user/"><img src="{{url}}"></a><li>
+                        
                             
                             {% endif %}
                             
@@ -59,7 +61,6 @@
                 <!--/.navbar-collapse -->
             </div>
         </nav>
-        {% block contenido %}
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <nav class="jumbo-nav">
             <div class="navigation-wrapper">
@@ -147,6 +148,7 @@
                             </div>
                         </div>
                     </nav>
+                    {% endblock %}                
                     <footer>
                         <div class="header-logo">
                             <a href="#">
@@ -165,5 +167,4 @@
                     <script src="{%static 'js/bootstrap.min.js'%}"></script>
                     
     </body>
-    {% endblock %}
 </html>
