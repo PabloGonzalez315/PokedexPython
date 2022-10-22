@@ -16,9 +16,14 @@ class Pokemons(models.Model):
     habilidad=models.CharField(max_length=30)
     debilidad=models.CharField(max_length=30)
     descripcion = RichTextField(blank=True, null=True)
+    fecha = models.DateField(null=True)
+    autor = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        verbose_name_plural = "Pokemons"
     
     def __str__(self):
-        return f"Nombre:{self.nombre} - numero:{self.numero}"
+        return '%s - %s' % (self.nombre, self.autor)
   
 class Avatar(models.Model):
     

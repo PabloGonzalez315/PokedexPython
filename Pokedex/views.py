@@ -42,7 +42,6 @@ def pokemon(request):
         return render(request, "home.html")
     return render(request, "pokemon.html")
 
-
 def buscar_pokemon(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
@@ -51,8 +50,6 @@ def buscar_pokemon(request):
     else:
         respuesta = "No se enviaron datos"
     return HttpResponse(respuesta)
-
-
 
 def create_pokemons(request):
     if request.method == 'POST':
@@ -73,7 +70,7 @@ def update_pokemons(request, pokemon_id):
     pokemon = Pokemons.objects.get(id=pokemon_id)
 
     if request.method == 'POST':
-        formulario = form_pokemons(request.POST)
+        formulario = CreatePokemon(request.POST)
 
         if formulario.is_valid():
             informacion = formulario.cleaned_data
@@ -84,7 +81,7 @@ def update_pokemons(request, pokemon_id):
             pokemons = Pokemons.objects.all()  # Trae todo
             return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
     else:
-        formulario = form_pokemons(
+        formulario = CreatePokemon(
             initial={'nombre': pokemon.nombre, 'numero': pokemon.numero, 'tipo1': pokemon.tipo1})
     return render(request, "pokemonsCrud/update_pokemon.html", {"formulario": formulario})
 
@@ -220,6 +217,27 @@ class cambiar_password(PasswordChangeView):
 
         return contexto
 
+@login_required
+def Add_Pokemons(request):   
+   
+    if request.method == "POST":
+        
+        pokeadd = CreatePokemon(request.POST, request.FILES)
+        
+        if pokeadd.is_valid():
+
+            info = pokeadd.cleaned_data
+
+            new_pokemon = Pokemons(numero=info["numero"],nombre=info["nombre"],tipo1=info["tipo1"],tipo2=info["tipo2"],habilidad=info["habilidad"],debilidad=info["debilidad"],imagen=info["imagen"],descripcion=info["descripcion"], fecha=datetime.datetime.today(), autor=request.user)
+            new_pokemon.save()
+
+            messages.success(request, "Pokemon was successfully added.") 
+            return redirect('home')
+        
+        return render(request, "pokemonsCrud/createpokemon", {"pokeadd":pokeadd})
+    
+    pokeadd = CreatePokemon()
+    return render(request, 'pokemonsCrud/createpokemon.html', {'pokeadd':pokeadd})
 
 @login_required
 def pic(request):
