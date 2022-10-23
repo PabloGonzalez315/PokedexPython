@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-
+from ckeditor.fields import RichTextFormField
 from Pokedex.models import Avatar
 
 class UserRegisterForm(UserCreationForm):
@@ -44,14 +44,17 @@ class AvatarForm(forms.Form):
         model = Avatar
         fields = ['imagen']        
 
-class form_pokemons(forms.Form):
-    nombre = forms.CharField(max_length=30)
+class CreatePokemon(forms.Form):
     numero = forms.CharField(max_length=30)
+    nombre = forms.CharField(max_length=30)
     tipo1 = forms.CharField(max_length=30)
     tipo2 = forms.CharField(max_length=30)
     habilidad = forms.CharField(max_length=30)
     debilidad = forms.CharField(max_length=30)
-    imagen = forms.CharField(max_length=30)
+    imagen = forms.ImageField(allow_empty_file=True)
+    descripcion = RichTextFormField()  
+
+
 
 
 
