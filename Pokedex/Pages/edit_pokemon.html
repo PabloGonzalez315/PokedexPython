@@ -1,0 +1,29 @@
+{%extends "home.html"%}
+
+Pokedex - Pokemon Edit
+{%endblock%}
+
+{%block contenido%}
+<br>
+    <div class="col-lg-6 mb-5" style="margin-left: auto; margin-right: auto;">
+        <div class="card h-100 shadow border-0">            
+            <div class="card-body p-4">
+                <h1>Pokemon Edit</h1>
+                <hr>
+                <form enctype="multipart/form-data" action="" method="POST">
+                    {% csrf_token %}
+                    
+                        <table>
+                    
+                            {{form.media}}
+                            {{form.as_table}}
+                    
+                        </table>
+                    
+                        <input type="submit" class="btn btn-primary" value="Send">
+                    
+                    </form>                                                 
+            </div>                                
+        </div>
+    </div>
+{%endblock%}

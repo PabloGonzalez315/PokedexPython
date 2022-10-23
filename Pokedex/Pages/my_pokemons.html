@@ -1,0 +1,62 @@
+{%extends "home.html"%}
+{%loadstatics%}
+
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+{%block title%}
+Pokedex - My Pokemons
+{%endblock%}
+
+{%block contenido%}
+
+
+<br>
+<h1 style="text-align: center;"><b>My Pokemons</b></h1>
+<br>
+<hr style="width: 25%; margin: auto;">
+<br>
+<br>
+
+            {%for msg in messages%}
+            <div class="alert alert-success alert-dismissible fade show" role="alert" style="max-width: 350px; text-align: center; margin-left: auto; margin-right: auto;">
+                {{msg}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {%endfor%}
+
+            {%if pokemons|length == 0 %}
+
+              <h2 style="text-align: center;">No Pokemons added yet!</h2>
+              <br>
+              <br>
+
+            {%else%}
+
+                <div class="row gx-5"> 
+                    {%for pokemon in pokemons%}
+                    <div class="col-lg-3 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{{pokemon.imagen.url}}" alt="..." style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;"/>
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{pokemon.nombre}}</div>
+                                <h5 class="card-title mb-3">{{pokemon.numero}}</h5></a>
+                                <h5 class="card-title mb-3">{{pokemon.tipo1}}</h5></a>
+                                <h5 class="card-title mb-3">{{pokemon.tipo2}}</h5></a>
+                                <h5 class="card-title mb-3">{{pokemon.habilidad}}</h5></a>
+                                <h5 class="card-title mb-3">{{pokemon.debilidad}}</h5></a>
+                                <p class="card-text mb-0">{{pokemon.descripcion|slice:160|safe}}...</p>
+                                <br>                
+                                <br>
+                                <a class="btn btn-outline-info btn-lg px-2 me-sm2" href="{% url 'draw_pokemon' pokemon.id %}" style="text-align: center;">Ver</a>                                   
+                                <a class="btn btn-outline-primary btn-lg px-2 me-sm2" href="{% url 'edit_pokemon' pokemon.id %}" style="text-align: center;">Editar</a>                                   
+                                <a class="btn btn-outline-danger btn-lg px-2 me-sm2" href="{% url 'delete_pokemon' pokemon.id %}" style="text-align: center;">Eliminar</a>                                   
+                            </div>                                
+                        </div>
+                    </div>
+                {%endfor%}             
+                {%endif%}               
+                </div>
+
+{%endblock%}
