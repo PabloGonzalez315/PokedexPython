@@ -11,16 +11,34 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/Pokedex/home/">Pokedex Django</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav">
             <li><a href="/Pokedex/home/">Home</a></li>
+            <li><a href="/Pokedex/pokemons">Pokedex</a></li>
             <li class="active"><a href="/Pokedex/about/">About us!</a></li>
+
+
+            {% if not request.user.is_authenticated %}
             <li><a href="/Pokedex/login/">Login</a></li>
             <li><a href="/Pokedex/register/">Sing Up!</a></li>
-          </ul>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <li><a href="/Pokedex/createpokemon/">Pokemon Uploader</a></li>
+            <li><a href="/Pokedex/my_pokemons">My Pokemons</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
+            <li><img src="{{user.avatar.imagen.url}}" style="height: 40px; width: 40px; "><li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><a href="/Pokedex/edit_user/">Edit User</a></li> 
+            <li><a href="/Pokedex/logout">Log Out!</a></li> 
+                {% endif %}
+                
+            </ul>
 
         </div><!--/.navbar-collapse -->
       </div>

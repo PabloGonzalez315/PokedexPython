@@ -27,5 +27,5 @@ class Pokemons(models.Model):
   
 class Avatar(models.Model):
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     imagen = models.ImageField(upload_to='avatar/', null=True, blank=True)
