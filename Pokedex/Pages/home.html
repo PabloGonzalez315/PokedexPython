@@ -21,46 +21,45 @@
         {% block contenido %}
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
-                    <button
-                    type="button"
-                        class="navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#navbar"
-                        aria-expanded="false"
-                        aria-controls="navbar"
-                    >
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Pokedex Django</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/Pokedex/home/">Home</a></li>
-                        <li><a href="/Pokedex/create_pokemons/">Pokemon Uploader</a></li>
-                        <li><a href="/Pokedex/about/">About us!</a></li>
-
-                        {% if not request.user.is_authenticated %}
-                        <li><a href="/Pokedex/login/">Login</a></li>
-                        <li><a href="/Pokedex/register/">Sing Up!</a></li>
-                        {% endif %}
-        
-                        {% if request.user.is_authenticated %}
-                        <li><a href="/Pokedex/logout">Log Out!</a></li>
-                        <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
-                        <li><a href="/Pokedex/edit_user/"><img src="{{url}}"></a><li>
-                        
-                            
-                            {% endif %}
-                            
-                        </ul>
-                </div>
-                <!--/.navbar-collapse -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+      
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="/Pokedex/home/">Home</a></li>
+                  <li><a href="/Pokedex/pokemons">Pokedex</a></li>
+                  <li><a href="/Pokedex/about/">About us!</a></li>
+      
+      
+                  {% if not request.user.is_authenticated %}
+                  <li><a href="/Pokedex/login/">Login</a></li>
+                  <li><a href="/Pokedex/register/">Sing Up!</a></li>
+                  {% endif %}
+      
+                  {% if request.user.is_authenticated %}
+                  <li><a href="/Pokedex/createpokemon/">Pokemon Uploader</a></li>
+                  <li><a href="/Pokedex/my_pokemons">My Pokemons</a></li>
+                  <li><a></a></li>
+                  <li><a></a></li>
+                  <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
+                  <li><img src="{{user.avatar.imagen.url}}" style="height: 40px; width: 40px; "><li>
+                  <li><a></a></li>
+                  <li><a></a></li>
+                  <li><a href="/Pokedex/edit_user/">Edit User</a></li> 
+                  <li><a href="/Pokedex/logout">Log Out!</a></li> 
+                      {% endif %}
+                      
+                  </ul>
+      
+              </div><!--/.navbar-collapse -->
             </div>
-        </nav>
+          </nav>
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <nav class="jumbo-nav">
             <div class="navigation-wrapper">
@@ -88,66 +87,44 @@
                 </div>
             </div>
         </nav>
-        
-        <div class="container">
-            <br/>
-            <img src="{%static 'images/latest.png'%}" />
-            <hr/>
+        <br>
 
-                            <!-- Example row of columns -->
-                            <div class="container">
-                                
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="pokeball-wrapper">
-                                            <img src="{%static 'images/pokeball.png'%}" />
-                                        </div>
-                                        <div class="enhanced">
-                                            <h2>Heading</h2>
-                                            <img class="pokemon small" src="{%static 'images/pokemon2.png'%}" />
-                                            <p>
-                                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-                                                commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                                Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                            </p>
-                                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="pokeball-wrapper">
-                                            <img src="{%static 'images/pokeball.png'%}" />
-                                        </div>
-                                        <div class="enhanced">
-                                            <h2>Heading</h2>
-                                            <img class="pokemon small" src="{%static 'images/pokemon3.png'%}" />
-                                            <p>
-                                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-                                                commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                                Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                                            </p>
-                                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="pokeball-wrapper">
-                                            <img src="{%static 'images/pokeball.png'%}" />
-                                        </div>
-                                        <div class="enhanced">
-                                            <h2>Heading</h2>
-                                            <img class="pokemon small" src="{%static 'images/pokemon1.png'%}" />
-                                            <p>
-                                                Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                                                Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus
-                                                commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus
-                                                fermentum massa amet justo sit risus.
-                                            </p>
-                                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                                        </div>
-                                    </div>
+        <img src="{%static 'images/latest.png'%}" />
+        <br>
+        <br>
+        <br>
+        {%if last_pokemons|length == 0 %}
+        <p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
+        <br>
+        <br>
+    {%else%}
+                    <div class="container">
+                        <div class="row gx-5">
+                            {%for pokemon in last_pokemons%}
+                            <div class="col-lg-3 mb-5">
+                                <div class="pokeball-wrapper">
+                                    <img src="{%static 'images/pokeball.png'%}"/>
+                                </div>
+                                <div class="enhanced">
+                                    <h3>{{pokemon.numero}} {{pokemon.nombre}} </h3>
+                                    <p class="card-title mb-3">Type - {{pokemon.tipo1}}</p>
+                                    <p class="card-title mb-3">Type - {{pokemon.tipo2}}</p>
+                                    <p class="card-title mb-3">Ability - {{pokemon.habilidad}}</p>
+                                    <p class="card-title mb-3">Weakness - {{pokemon.debilidad}}</p>
+                                    <img src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;" />
+                                    
+
+                                    <p class="card-text mb-0" style="color: grey;">Added by: <i>{{pokemon.autor}}</i></p>
+                                    <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i></p>
+
+                                    <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
                                 </div>
                             </div>
                         </div>
-                    </nav>
+                        {%endfor%}     
+                    {%endif%}
+                    </div>
+                </div>
                     {% endblock %}                
                     <footer>
                         <div class="header-logo">

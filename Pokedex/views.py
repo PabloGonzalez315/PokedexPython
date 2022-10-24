@@ -18,7 +18,8 @@ from .forms import *
 
 
 def home(request):
-    return render(request, "home.html")
+    last_pokemons = Pokemons.objects.order_by('-id')[0:3] 
+    return render(request, "home.html", {"last_pokemons":last_pokemons})
 
 
 def about(request):
@@ -198,7 +199,7 @@ def agregar_avatar(request):
             avatar.save()
 
             messages.success(request, "El avatar se agrego exitosamente.") 
-            return redirect("home")
+            return redirect("editar_perfil")
 
     else:
 
@@ -209,7 +210,7 @@ def agregar_avatar(request):
 
 class cambiar_password(PasswordChangeView):
     form = PasswordChangeForm
-    success_url = reverse_lazy('edit_user') 
+    success_url = reverse_lazy('editar_perfil') 
 
     def get_context_data(self, *args, **kwargs):
         contexto = super(cambiar_password, self).get_context_data()

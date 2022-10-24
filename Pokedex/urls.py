@@ -16,7 +16,7 @@ urlpatterns = [
     path('edit_user/password', cambiar_password.as_view(template_name='change_pass.html'), name='change_pass'),
     path('pokemons', pokemons, name='pokemons'),
     path('pokemons/<pk>', draw_pokemon.as_view(), name='draw_pokemon'),
-    path('createpokemon', create_pokemon, name='create_pokemon'),
+    path('createpokemon/', create_pokemon, name='create_pokemon'),
     path('edit_pokemon/<pokemon_id>', edit_pokemon, name='edit_pokemon'),
     path('delete_pokemon/<pokemon_id>', delete_pokemon, name='delete_pokemon'),
     path('my_pokemons', my_pokemons, name='my_pokemons'),
