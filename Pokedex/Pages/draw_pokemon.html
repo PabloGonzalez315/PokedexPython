@@ -1,0 +1,31 @@
+{%extends "home.html"%}
+
+{%block title%}
+Pokedex - Pokemon
+{%endblock%}
+
+{%block contenido%}
+
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{pokemons.imagen.url}}" alt="..."/></div>
+                <div class="col-lg-6">
+                    <h1 class="fw-bolder">{{ pokemons.numero }}</h1>
+                    <h1 class="fw-bolder">{{ pokemons.nombre }}</h1>
+                    <h4 class="fw-bolder">Type - {{ pokemons.tipo1 }} | {{ pokemons.tipo2 }}</h4>
+                    <h4 class="fw-bolder">Ability - {{ pokemons.habilidad }}</h4>
+                    <h4 class="fw-bolder">Weakness - {{ pokemons.debilidad }}</h4>
+
+                    
+
+
+                    <h6>Date: <i>{{pokemons.fecha}}</i> | Added by: <i>{{pokemons.autor}}</i></h6>
+                    <br>
+                    <p class="lead fw-normal text-muted mb-0">{{ pokemons.descripcion|safe }}</p>
+                </div>                
+            </div>
+                <br>
+                <br>
+    
+{%endblock%}

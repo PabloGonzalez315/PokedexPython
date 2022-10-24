@@ -13,17 +13,17 @@
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-
+        
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
     </head>
-    
     <body>
+        {% block contenido %}
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button
-                        type="button"
+                    type="button"
                         class="navbar-toggle collapsed"
                         data-toggle="collapse"
                         data-target="#navbar"
@@ -39,8 +39,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="/Pokedex/home/">Home</a></li>
-                        <li class="active"><a href="/Pokedex/pokemon/">Pokemon Uploader</a></li>
+                        <li class="active"><a href="/Pokedex/home/">Home</a></li>
+                        <li><a href="/Pokedex/create_pokemons/">Pokemon Uploader</a></li>
                         <li><a href="/Pokedex/about/">About us!</a></li>
 
                         {% if not request.user.is_authenticated %}
@@ -49,19 +49,18 @@
                         {% endif %}
         
                         {% if request.user.is_authenticated %}
-                        <img src="{{url}}" style="height: 40px; width: 40px; ">
-                        <h3 class="text-muted small mb-4 mb-lg-0">Hello {{user.username}}.</h3>
-                        <li><a href="/Pokedex/logout/">Log Out!</a></li>
-
-        
-                        {% endif %}
-
-                    </ul>
+                        <li><a href="/Pokedex/logout">Log Out!</a></li>
+                        <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
+                        <li><a href="/Pokedex/edit_user/"><img src="{{user.avatar.url}}"></a><li>
+                        
+                            
+                            {% endif %}
+                            
+                        </ul>
                 </div>
                 <!--/.navbar-collapse -->
             </div>
         </nav>
-        {% block contenido %}
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <nav class="jumbo-nav">
             <div class="navigation-wrapper">
@@ -92,50 +91,42 @@
         
         <div class="container">
             <br/>
-            <img src="{%static 'images/latest.png'%}" />
+            <img src="{%static 'images/pokemon.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />
             <hr/>
+            {%if pokemons|length == 0 %}
+                <p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
+                <br>
+                <br>
+            {%else%}
+                            <div class="container">
+                                <div class="row gx-5">
+                                    {%for pokemon in pokemons%}
+                                    <div class="col-lg-3 mb-5">
+                                        <div class="pokeball-wrapper">
+                                            <img src="{%static 'images/pokeball.png'%}"  />
+                                        </div>
+                                        <div class="enhanced">
+                                            <h3>{{pokemon.numero}} {{pokemon.nombre}} </h3>
+                                            <p class="card-title mb-3">Type - {{pokemon.tipo1}}</p>
+                                            <p class="card-title mb-3">Type - {{pokemon.tipo2}}</p>
+                                            <p class="card-title mb-3">Ability - {{pokemon.habilidad}}</p>
+                                            <p class="card-title mb-3">Weakness - {{pokemon.debilidad}}</p>
+                                            <img src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;" />
+                                            
 
-            <form class="fieldset" action="/Pokedex/pokemon/" method="POST">
-                {% csrf_token %}  
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Nombre</span>
-                        <input class="form-control" type="text" name="nombre" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Numero</span>
-                        <input class="form-control" type="text" name="numero" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">tipo1</span>
-                        <input class="form-control" type="text" name="tipo1" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">tipo2</span>
-                        <input class="form-control" type="text" name="tipo2" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Habilidad</span>
-                        <input class="form-control" type="text" name="habilidad" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">debilidad</span>
-                        <input class="form-control" type="text" name="debilidad" placeholder="">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Imagen</span>
-                        <input class="form-control" type="text" name="imagen" placeholder="">
-                    </div>
-    
-                    <div class="input-group mb-3">
-                        <button type="submit" value="Enviar" class="btn btn-primary btndj mt-3">Enviar</button>
-                    </div>
-            </form>
-        
+                                            <p class="card-text mb-0" style="color: grey;">Added by: <i>{{pokemon.autor}}</i></p>
+                                            <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i></p>
+
+                                            <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {%endfor%}     
+                            {%endif%}
+                            </div>
+                        </div>
+                    </nav>
+                    {% endblock %}                
                     <footer>
                         <div class="header-logo">
                             <a href="#">
@@ -152,6 +143,6 @@
                     <!-- Placed at the end of the document so the pages load faster -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
                     <script src="{%static 'js/bootstrap.min.js'%}"></script>
-                    {% endblock %}
+                    
     </body>
 </html>

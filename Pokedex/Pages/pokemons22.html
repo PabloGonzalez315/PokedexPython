@@ -1,0 +1,47 @@
+{%extends "home.html"%}
+
+
+{%block title%}
+Pokedex - Pokemons
+{%endblock%}
+
+{%block contenido%}
+
+<br>
+<h1 style="text-align: center;"><b>Pokemons</b></h1>
+<br>
+<hr style="width: 25%; margin: auto;">
+<br>
+<br>
+
+{%if pokemons|length == 0 %}
+<p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
+<br>
+<br>
+{%else%}
+<div class="row gx-5"> 
+        {%for pokemon in pokemons%}
+        <div class="col-lg-3 mb-5">            
+            <div class="card h-100 shadow border-0">
+                <img class="card-img-top" src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;"/>
+                <div class="card-body p-4">
+                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{pokemon.nombre}}</div>
+                    <h5 class="badge bg-primary bg-gradient rounded-pill mb-2">{{pokemon.numero}}</h5></a>
+                    <h5 class="card-title mb-3">Type - {{pokemon.tipo1}}</h5></a>
+                    <h5 class="card-title mb-3">Type - {{pokemon.tipo2}}</h5></a>
+                    <h5 class="card-title mb-3">Ability - {{pokemon.habilidad}}</h5></a>
+                    <h5 class="card-title mb-3">Weakness -{{pokemon.debilidad}}</h5></a>
+                    <p class="card-text mb-0">{{pokemon.descripcion|safe}}</p>
+                    <br>
+                    <p class="card-text mb-0" style="color: grey;">Added by: <i>{{pokemon.autor}}</i></p>
+                    <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i></p>
+                    <br>
+                    <a class="btn btn-info btn-lg px-2 me-sm2" href="{% url 'draw_pokemon' pokemon.id %}" style="text-align: center; color: white;">Ver</a>                                   
+                </div>                                
+            </div>
+        </div>
+    {%endfor%}     
+{%endif%}
+</div>
+
+{%endblock%}

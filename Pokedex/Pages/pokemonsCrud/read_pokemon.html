@@ -7,7 +7,7 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-around">
         <div class="card backCard">
-            <img class="card-img" src="{{pokemon.imagen}}" alt="{{pokemon.imagen}} width="150" height="150"">
+            <img class="card-img" src="{{pokemon.imagen.url}}" alt="{{pokemon.imagen}} width="150" height="150"">
             <div class="card-body">
                 <h4 class="card-title">{{pokemon.nombre}}</h4>
                 <ul>
@@ -27,3 +27,23 @@
 {% endfor %}
 <a class="btn btn-success" href="/Pokedex/create_pokemons">+ Agregar pokemon</a>
 {% endblock %}
+
+<div class="row gx-5"> 
+    {%for publicacion in publicaciones%}
+    <div class="col-lg-3 mb-5">
+        <div class="card h-100 shadow border-0">
+            <img class="card-img-top" src="{{publicacion.imagen.url}}" alt="..." style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;"/>
+            <div class="card-body p-4">
+                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{publicacion.pais}}</div>
+                <h5 class="card-title mb-3">{{publicacion.titulo}}</h5></a>
+                <p class="card-text mb-0">{{publicacion.descripcion|slice:160|safe}}...</p>
+                <br>                
+                <br>
+                <a class="btn btn-outline-info btn-lg px-2 me-sm2" href="{% url 'ver_publicacion' publicacion.id %}" style="text-align: center;">Ver</a>                                   
+                <a class="btn btn-outline-primary btn-lg px-2 me-sm2" href="{% url 'editar_publicacion' publicacion.id %}" style="text-align: center;">Editar</a>                                   
+                <a class="btn btn-outline-danger btn-lg px-2 me-sm2" href="{% url 'eliminar_publicacion' publicacion.id %}" style="text-align: center;">Eliminar</a>                                   
+            </div>                                
+        </div>
+    </div>
+{%endfor%}                        
+</div>
