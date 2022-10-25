@@ -43,56 +43,70 @@
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-    
     <!-- Main jumbotron for a primary marketing message or call to action -->
-     <nav class="jumbo-nav">
+    <nav class="jumbo-nav">
       <div class="navigation-wrapper">
-        <div class="navigation">
-          <div class="header-logo">
-            <a href="/Pokedex/home/">
-              <img src="{%static 'images/pokedex.webp'%}" />
-            </a>
+          <div class="navigation">
+              <div class="header-logo">
+                  <a href="/Pokedex/home/">
+                      <img src="{%static 'images/pokedex.webp'%}" />
+                      
+                  </a>
+              </div>
           </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
+          <!-- Example row of columns -->
+          <div class="container">
+              <div class="row">
+                  <div class="space">  
+                      <br>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
       
         <!-- Example row of columns -->
+        <nav class="jumbo-nav2">
+          <div class="navigation-wrapper2">
+              <div class="navigation">
+                  <div class="header-logo">
+                          <img src="{%static 'images/about.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />                       
+                      <br>
+                  </div>
+              </div>
+
         <div class="container">
           <div class="row">
             <div class="col-md-4">
               <div class="pokeball-wrapper">
-                <img src="./images/pokeball.png" />
+                <img src="{%static 'images/coderhouse_logo.webp'%}" />
               </div>
               <div class="enhanced">
                 <h2>Herrera Omar</h2>
-                <img class="pokemon small" src="./images/pokemon2.png" />
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <img class="pokemon small" src="{%static 'images/pokemon2.png'%}"/>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                 <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
               </div>
             </div>
+
+            <div class="col-md-4">
+              <img src="{%static 'images/coderhouse.jpg'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />
+            </div>
+
             <div class="col-md-4">
               <div class="pokeball-wrapper">
-                <img src="./images/pokeball.png" />
+                <img src="{%static 'images/coderhouse_logo.webp'%}" />
               </div>
             <div class="enhanced">
                 <h2>Gonzalez Pablo</h2>
-                <img class="pokemon small" src="./images/pokemon3.png" />
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <img class="pokemon small" src="{%static 'images/pokemon1.png'%}"/>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                 <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
              </div>
            </div>
           </div>
         </div>
-        
       </div>
     </nav>
     {% endblock %}

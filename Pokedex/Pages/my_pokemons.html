@@ -80,10 +80,7 @@
         <div class="navigation">
             <div class="header-logo">
                 <a href="/Pokedex/home/">
-                    <img
-                        src="{%static 'images/pokemon.png'%}"
-                        style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center"
-                    />
+
                 </a>
                 <hr />
                 <br />
@@ -92,52 +89,6 @@
 
         <div class="container">
             <div class="row">
-                {%if pokemons|length == 0 %}
-                <p style="text-align: center; font-size: 30px; font-weight: bold">No Pokemons added yet!</p>
-                <br />
-                <br />
-                {%else%} {%for pokemon in pokemons%}
-                <div class="col-md-4">
-                    <div class="pokeball-wrapper">
-                        <img src="{%static 'images/pokeball.png'%}" />
-                    </div>
-                    <div class="enhanced">
-                        <h3>{{pokemon.numero}} {{pokemon.nombre}}</h3>
-                        <p class="card-title mb-3">Type - {{pokemon.tipo1}}</p>
-                        <p class="card-title mb-3">Type - {{pokemon.tipo2}}</p>
-                        <p class="card-title mb-3">Ability - {{pokemon.habilidad}}</p>
-                        <p class="card-title mb-3">Weakness - {{pokemon.debilidad}}</p>
-                        <img
-                            src="{{pokemon.imagen.url}}"
-                            alt="..."
-                            style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center"
-                        />
-
-                        <p class="card-text mb-0" style="color: grey">Date: <i>{{pokemon.fecha}}</i><</p>
-                        <p>
-                            <a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button"
-                                >View details &raquo;</a
-                            >
-                        </p>
-                        <br />
-                        <a
-                            class="btn btn-outline-info btn-lg px-2 me-sm2"
-                            href="{% url 'draw_pokemon' pokemon.id %}"
-                            style="text-align: center"
-                            >Ver</a
-                        >
-                        <a
-                            class="btn btn-outline-primary btn-lg px-2 me-sm2"
-                            href="{% url 'edit_pokemon' pokemon.id %}"
-                            style="text-align: center"
-                            >Editar</a
-                        >
-                        <a
-                            class="btn btn-outline-danger btn-lg px-2 me-sm2"
-                            href="{% url 'delete_pokemon' pokemon.id %}"
-                            style="text-align: center"
-                            >Eliminar</a
-                        >
                     </div>
                 </div>
                 {%endfor%} {%endif%}
