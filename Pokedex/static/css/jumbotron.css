@@ -5,6 +5,7 @@ body {
     background-color: #0069e1;
     background: url(../images/header-background-sticky.png);
     background-size: cover;
+    box-sizing: border-box;
 }
 
 .jumbo-nav .jumbo-nav2 {
@@ -39,7 +40,7 @@ body {
     position: relative;
 }
 
-.space{
+.space {
     width: 2px;
     height: 250px;
 }
@@ -64,7 +65,6 @@ body {
     height: auto;
     display: block;
 }
-
 
 .header-logo a:hover img {
     -webkit-animation: ease-out-back 0.4s ease-out;
@@ -115,7 +115,11 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
+    margin-top: 30px !important;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .pokeball-wrapper {
@@ -178,4 +182,21 @@ img.pokemon.small {
     background: rgb(252, 242, 242);
     border-radius: 15px;
     box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+}
+
+.cardPoke {
+    height: min-content;
+}
+
+.navigation {
+    margin: 0 auto;
+    align-items: center;
+}
+
+.mb5 {
+    margin-bottom: 30px;
 }
