@@ -244,7 +244,7 @@ def create_pokemon(request):
 
 @login_required
 def my_pokemons(request):
-    pokemons = Pokemons.objects.filter(autor=request.user).order_by('-id')        
+    pokemons = Pokemons.objects.filter(autor=request.user).order_by('numero')        
 
     return render(request, "my_pokemons.html", {"pokemons":pokemons})
 

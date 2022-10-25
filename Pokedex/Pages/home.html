@@ -17,7 +17,9 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
     </head>
+
     <body>
+
         {% block contenido %}
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -30,12 +32,11 @@
                 </button>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
-      
+
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="/Pokedex/home/">Home</a></li>
                   <li><a href="/Pokedex/pokemons">Pokedex</a></li>
                   <li><a href="/Pokedex/about/">About us!</a></li>
-      
       
                   {% if not request.user.is_authenticated %}
                   <li><a href="/Pokedex/login/">Login</a></li>
@@ -53,9 +54,9 @@
                   <li><a></a></li>
                   <li><a href="/Pokedex/edit_user/">Edit User</a></li> 
                   <li><a href="/Pokedex/logout">Log Out!</a></li> 
-                      {% endif %}
-                      
-                  </ul>
+                  {% endif %}  
+                  
+                </ul>
       
               </div><!--/.navbar-collapse -->
             </div>
@@ -66,8 +67,7 @@
                 <div class="navigation">
                     <div class="header-logo">
                         <a href="/Pokedex/home/">
-                            <img src="{%static 'images/pokedex.webp'%}" />
-                            
+                            <img src="{%static 'images/pokedex.webp'%}" />                          
                         </a>
                     </div>
                 </div>
@@ -75,73 +75,77 @@
                 <!-- Example row of columns -->
                 <div class="container">
                     <div class="row">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                        <div class="space">  
+                            <br>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
-        <br>
+        
+        <nav class="jumbo-nav2">
+            <div class="navigation-wrapper2">
+                <div class="navigation">
+                    <div class="header-logo">
+                        <a href="/Pokedex/home/">
+                            <img src="{%static 'images/latest.png'%}" />                        
+                        </a>
+                        <hr>
+                        <br>
+                    </div>
+                </div>
 
-        <img src="{%static 'images/latest.png'%}" />
-        <br>
-        <br>
-        <br>
-        {%if last_pokemons|length == 0 %}
-        <p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
-        <br>
-        <br>
-    {%else%}
-                    <div class="container">
-                        <div class="row gx-5">
-                            {%for pokemon in last_pokemons%}
-                            <div class="col-lg-3 mb-5">
-                                <div class="pokeball-wrapper">
-                                    <img src="{%static 'images/pokeball.png'%}"/>
-                                </div>
-                                <div class="enhanced">
-                                    <h3>{{pokemon.numero}} {{pokemon.nombre}} </h3>
-                                    <p class="card-title mb-3">Type - {{pokemon.tipo1}}</p>
-                                    <p class="card-title mb-3">Type - {{pokemon.tipo2}}</p>
-                                    <p class="card-title mb-3">Ability - {{pokemon.habilidad}}</p>
-                                    <p class="card-title mb-3">Weakness - {{pokemon.debilidad}}</p>
-                                    <img src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;" />
-                                    
-
-                                    <p class="card-text mb-0" style="color: grey;">Added by: <i>{{pokemon.autor}}</i></p>
-                                    <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i></p>
-
-                                    <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
-                                </div>
+                <!-- Example row of columns -->
+                <div class="container">
+                    <div class="row">
+                        {%if last_pokemons|length == 0 %}
+                        <p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
+                        <br>
+                        <br>
+                        {%else%}
+                        {%for pokemon in last_pokemons%}
+                        <div class="col-md-4">
+                            <div class="pokeball-wrapper">
+                                <img src="{%static 'images/pokeball.png'%}"/>
+                            </div>
+                            <div class="enhanced">
+                                <h3>{{pokemon.numero}} {{pokemon.nombre}} </h3>
+                                <p class="card-title mb-3">Type - {{pokemon.tipo1}}</p>
+                                <p class="card-title mb-3">Type - {{pokemon.tipo2}}</p>
+                                <p class="card-title mb-3">Ability - {{pokemon.habilidad}}</p>
+                                <p class="card-title mb-3">Weakness - {{pokemon.debilidad}}</p>
+                                <img src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;" />
+                                
+                                <p class="card-text mb-0" style="color: grey;">Added by: <i>{{pokemon.autor}}</i></p>
+                                <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i></p>
+                                <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
                             </div>
                         </div>
                         {%endfor%}     
                     {%endif%}
                     </div>
                 </div>
-                    {% endblock %}                
-                    <footer>
-                        <div class="header-logo">
-                            <a href="#">
-                                <img src="{%static 'images/Python.png'%}" />
-                            </a>
-                        </div>
-                        <p>&copy; 2022 Company, Inc.</p>
-                    </footer>
-                </div>
-                <!-- /container -->
-                
-                <!-- Bootstrap core JavaScript
-                    ================================================== -->
-                    <!-- Placed at the end of the document so the pages load faster -->
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+            </div>
+        </nav>
+         {% endblock %}                
+         <footer>
+            
+             <div class="header-logo">
+                 <a href="#">
+                     <img src="{%static 'images/Python.png'%}" />
+                 </a>
+             </div>
+             <p>&copy; 2022 Company, Inc.</p>
+         </footer>
+         
+     </div>
+     <!-- /container -->
+
+     <!-- Bootstrap core JavaScript
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+         <script src="{%static 'js/bootstrap.min.js'%}"></script>
                     
     </body>
 </html>

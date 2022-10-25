@@ -7,7 +7,7 @@ body {
     background-size: cover;
 }
 
-.jumbo-nav {
+.jumbo-nav .jumbo-nav2 {
     margin: 0 auto;
 }
 
@@ -18,11 +18,19 @@ body {
     background-size: cover;
 }
 
-.jumbo-nav .navigation-wrapper .container {
+.jumbo-nav2 .navigation-wrapper2 {
+    min-height: 200px;
+    align-items: center;
+    text-align: center;
+    background-position: center top;
+    background-size: cover;
+}
+
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 .container {
     padding-top: 250px;
 }
 
-.jumbo-nav .navigation-wrapper .navigation .header-logo {
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 {
     width: 294px;
     height: auto;
     padding-top: 65px;
@@ -31,11 +39,32 @@ body {
     position: relative;
 }
 
-.jumbo-nav .navigation-wrapper .navigation .header-logo img {
+.space{
+    width: 2px;
+    height: 250px;
+}
+
+.navigation .header-logo {
+    width: 294px;
+    height: auto;
+    padding-top: 65px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+.navigation .header-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 .header-logo a:hover img {
     -webkit-animation: ease-out-back 0.4s ease-out;
@@ -45,7 +74,7 @@ body {
     transform-origin: center;
 }
 
-.jumbo-nav .navigation-wrapper .navigation {
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 .navigation {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,8 +84,8 @@ body {
     overflow: hidden;
 }
 
-.jumbo-nav .navigation-wrapper .navigation:before,
-.jumbo-nav .navigation-wrapper .navigation:after {
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 .navigation:before,
+.jumbo-nav .navigation-wrapper .jumbo-nav2 .navigation-wrapper2 .navigation:after {
     content: "";
     display: block;
     width: calc(50% - 234px);
@@ -70,6 +99,12 @@ body {
 }
 
 .navigation-wrapper ul li {
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.navigation-wrapper2 ul li {
     display: inline-block;
     vertical-align: bottom;
     position: relative;
