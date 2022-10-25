@@ -76,7 +76,7 @@
        <div class="navigation">
             <div class="header-logo">
                 <a href="/Pokedex/home/">
-                   <img src="{%static 'images/pokemon.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />                       
+                   <img src="{%static 'images/mypokemons.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />                       
                 </a>
                <hr>
                 <br>
@@ -105,10 +105,9 @@
                     
                             <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i><
                             <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
-                            <br>
-                            <a class="btn btn-outline-info btn-lg px-2 me-sm2" href="{% url 'draw_pokemon' pokemon.id %}" style="text-align: center;">Ver</a>                                   
-                            <a class="btn btn-outline-primary btn-lg px-2 me-sm2" href="{% url 'edit_pokemon' pokemon.id %}" style="text-align: center;">Editar</a>                                   
-                            <a class="btn btn-outline-danger btn-lg px-2 me-sm2" href="{% url 'delete_pokemon' pokemon.id %}" style="text-align: center;">Eliminar</a>                                                                   
+                            <br>                                  
+                            <a class="btn btn-default" href="{% url 'edit_pokemon' pokemon.id %}" style="text-align: center;">Edit</a>                                   
+                            <a class="btn btn-default" href="{% url 'delete_pokemon' pokemon.id %}" style="text-align: center;">Delete</a>                                                                   
                         </div>
                     </div>
                     {%endfor%}     
