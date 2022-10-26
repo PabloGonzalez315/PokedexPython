@@ -1,11 +1,13 @@
-*Título del Proyecto: Pokedex
+![Logo](https://repository-images.githubusercontent.com/253698085/cce90300-78c3-11ea-8b94-604fad2c516d)
+
 
 
 *Pre-requisitos 🗒️
 
 
 Instalar librerías de Python, para ello debemos ejecutar en consola el siguiente comando :
-python pip install requirements.txt
+### Comands
+$  python pip install requirements.txt
 
 
 
@@ -84,3 +86,9 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 
 
 *Version 1.0
+![GITHUB](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![GIT](	https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![WINDOWS](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![LINUX](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![PYTHON](https://img.shields.io/badge/Python-0078D4?style=for-the-badge&logo=Python&logoColor=yellow)
+![DJANGO](https://img.shields.io/badge/Django-100000?style=for-the-badge&logo=Django&logoColor=success)
