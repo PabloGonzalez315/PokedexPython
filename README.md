@@ -1,4 +1,5 @@
 ![Logo](https://repository-images.githubusercontent.com/253698085/cce90300-78c3-11ea-8b94-604fad2c516d)
+![Pokedex](https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png)
 
 \*Pre-requisitos 🗒️
 
