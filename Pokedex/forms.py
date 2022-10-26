@@ -25,16 +25,13 @@ class UserRegisterForm(UserCreationForm):
         
 class UserEditForm(forms.Form):
 
-    username = forms.CharField(widget= forms.TextInput(attrs={'placeholder': 'Username'}))
-    email = forms.EmailField(widget= forms.TextInput(attrs={'placeholder': 'Email'}))
-    first_name = forms.CharField(widget= forms.TextInput(attrs={'placeholder': 'First Name'}))
-    last_name = forms.CharField(widget= forms.TextInput(attrs={'placeholder': 'Last Name'}))
-    password = forms.CharField(widget= forms.PasswordInput(attrs={'placeholder': 'Password'}))    
+    email = forms.EmailField(label="Email")  
+    first_name = forms.CharField(label="Nombre")
+    last_name = forms.CharField(label="Apellido")    
     
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password']
-        help_texts = {k:"" for k in fields}
+        fields = ['email', 'first_name', 'last_name']
 
 class AvatarForm(forms.Form):
 
@@ -57,19 +54,3 @@ class CreatePokemon(forms.Form):
 
 
 
-
-
-    
-
-class ChangePasswordForm(PasswordChangeForm):
-    old_password = forms.CharField(label="", widget= forms.PasswordInput(attrs={'placeholder': "Old Password"}))
-    new_password1 = forms.CharField(label="",widget= forms.PasswordInput(attrs={'placeholder': "New password"}))
-    new_password2 = forms.CharField(label="",widget= forms.PasswordInput(attrs={'placeholder': "Confirm new password"}))
-
-    class Meta:
-        model = User
-        fields = ['old_password', 'new_password1', 'new_password2']
-        help_texts = {k:"" for k in fields}
-
-class AvatarFormulario(forms.Form):
-    avatar = forms.ImageField()

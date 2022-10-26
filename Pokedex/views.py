@@ -26,71 +26,10 @@ def about(request):
     return render(request, "about.html")
 
 
-# def login(request):
-# return render(request, "login.html")
-
 
 def register(request):
     return render(request, "register.html")
 
-
-###def pokemon(request):
-###    if request.method == "POST":
-###        pokemon = Pokemons(nombre=request.POST["nombre"], numero=request.POST["numero"], tipo1=request.POST["tipo1"],
-###                           tipo2=request.POST["tipo2"], habilidad=request.POST["habilidad"], debilidad=request.POST["debilidad"],  imagen=request.POST["imagen"])
-###        pokemon.save()
-###        return render(request, "home.html")
-###    return render(request, "pokemon.html")####
-
-###def buscar_pokemon(request):
-###    if request.GET["nombre"]:
-###        nombre = request.GET["nombre"]
-###        pokemons = Pokemons.objects.filter(nombre__icontains=nombre)
-###        return render(request, "pokemon.html", {"pokemons": pokemons})
-###    else:
-###        respuesta = "No se enviaron datos"
-###    return HttpResponse(respuesta)
-
-###def create_pokemons(request):
-###    if request.method == 'POST':
-###        pokemon = Pokemons(
-###            nombre=request.POST['nombre'], numero=request.POST['numero'], tipo1=request.POST['tipo1'])
-###        pokemon.save()
-###        pokemons = Pokemons.objects.all()
-###        return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
-###    return render(request, "pokemonsCrud/create_pokemon.html")
-
-
-##def read_pokemons(request=None):
-##    pokemons = Pokemons.objects.all()  # Trae todo
-##    return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
-
-###def update_pokemons(request, pokemon_id):
-###    pokemon = Pokemons.objects.get(id=pokemon_id)
-###
-###    if request.method == 'POST':
-###        formulario = CreatePokemon(request.POST)
-###
-###        if formulario.is_valid():
-###            informacion = formulario.cleaned_data
-###            pokemon.nombre = informacion['nombre']
-###            pokemon.numero = informacion['numero']
-###            pokemon.tipo1 = informacion['tipo1']
-###            pokemon.save()
-###            pokemons = Pokemons.objects.all()  # Trae todo
-###            return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
-###    else:
-###        formulario = CreatePokemon(
-###            initial={'nombre': pokemon.nombre, 'numero': pokemon.numero, 'tipo1': pokemon.tipo1})
-###    return render(request, "pokemonsCrud/update_pokemon.html", {"formulario": formulario})
-
-
-###def delete_pokemons(request, pokemon_id):
-###    pokemon = Pokemons.objects.get(id=pokemon_id)
-###    pokemon.delete()
-###
-###    pokemons = Pokemons.objects.all()
-###    return render(request, "pokemonsCrud/read_pokemon.html", {"pokemons": pokemons})
 
 def pokemons(request):
         pokemons = Pokemons.objects.all().order_by('numero')
@@ -125,7 +64,7 @@ def login_request(request):
 
 def logout_request(request):
     logout(request)
-    return redirect("home")
+    return redirect("login")
 
 
 def registro(request):
@@ -173,12 +112,11 @@ def editar_perfil(request):
 
             user.save()
 
-            messages.success(request, "Los cambios fueron actualizados.")
+            messages.success(request, "Profile successfully updated")
             return redirect('editar_perfil')
 
     else:
-        form = UserEditForm(initial={
-                            'email': user.email, "first_name": user.first_name, "last_name": user.last_name})
+        form = UserEditForm(initial={'email': user.email, "first_name": user.first_name, "last_name": user.last_name})
 
     return render(request, 'edit_user.html', {"form": form})
 
@@ -198,7 +136,7 @@ def agregar_avatar(request):
 
             avatar.save()
 
-            messages.success(request, "El avatar se agrego exitosamente.") 
+            messages.success(request, "Profile updated successfully") 
             return redirect("editar_perfil")
 
     else:
@@ -214,7 +152,7 @@ class cambiar_password(PasswordChangeView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super(cambiar_password, self).get_context_data()
-        mensaje = messages.success(self.request, "Password was successfully edited.")
+        mensaje = messages.success(self.request, "Password updated successfully")
 
         contexto['mensaje']=mensaje
 
@@ -234,8 +172,8 @@ def create_pokemon(request):
             new_pokemon = Pokemons(numero=info["numero"],nombre=info["nombre"],tipo1=info["tipo1"],tipo2=info["tipo2"],habilidad=info["habilidad"],debilidad=info["debilidad"],imagen=info["imagen"],descripcion=info["descripcion"], fecha=datetime.datetime.today(), autor=request.user)
             new_pokemon.save()
 
-            messages.success(request, "Pokemon was successfully added.") 
-            return redirect('pokemons')
+            messages.success(request, "Pokemon added successfully") 
+            return redirect('my_pokemons')
         
         return render(request, "createpokemon", {"pokemon":pokemon})
     
@@ -286,7 +224,7 @@ def edit_pokemon(request, pokemon_id):
             pokemon.descripcion = info_pokemon["descripcion"]        
 
             pokemon.save()
-            messages.success(request, "Pokemon was successfully edited.") 
+            messages.success(request, "Pokemon edited successfully") 
             
             return redirect ("my_pokemons")
 
@@ -300,6 +238,6 @@ def delete_pokemon(request, pokemon_id):
     pokemon = Pokemons.objects.get(id=pokemon_id)
     pokemon.delete()
 
-    messages.success(request, "Pokemon was successfully deleted.") 
+    messages.success(request, "Pokemon deleted successfully.") 
     return redirect("my_pokemons")
 
