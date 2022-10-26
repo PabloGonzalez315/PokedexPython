@@ -78,13 +78,20 @@
                 <a href="/Pokedex/home/">
                    <img src="{%static 'images/mypokemons.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />                       
                 </a>
-               <hr>
                 <br>
             </div>
        </div>
 
       <div class="container">
             <div class="row">
+
+            {%for msg in messages%}
+            <div class="alertsuccess" role="alert" style="max-width: 350px; text-align: center; margin-left: auto; margin-right: auto;">
+            {{msg}}
+            </div>
+            {%endfor%}
+            <br>
+            <br>
             {%if pokemons|length == 0 %}
             <p style="text-align: center; font-size: 30px; font-weight: bold;">No Pokemons added yet!</p>
             <br>
@@ -104,10 +111,10 @@
                             <img src="{{pokemon.imagen.url}}" alt="..." style="max-width: 200px; max-height: 200px; height: auto; width: auto; align-self: center;" />
                     
                             <p class="card-text mb-0" style="color: grey;">Date: <i>{{pokemon.fecha}}</i><
-                            <p><a class="btn btn-default" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
+                            <p><a class="btn btn-success" href="{% url 'draw_pokemon' pokemon.id %}" role="button">View details &raquo;</a></p>
                             <br>                                  
-                            <a class="btn btn-default" href="{% url 'edit_pokemon' pokemon.id %}" style="text-align: center;">Edit</a>                                   
-                            <a class="btn btn-default" href="{% url 'delete_pokemon' pokemon.id %}" style="text-align: center;">Delete</a>                                                                   
+                            <a class="btn btn-warning" href="{% url 'edit_pokemon' pokemon.id %}" style="text-align: center;">Edit</a>                                   
+                            <a class="btn btn-danger" href="{% url 'delete_pokemon' pokemon.id %}" style="text-align: center;">Delete</a>                                                                   
                         </div>
                     </div>
                     {%endfor%}     

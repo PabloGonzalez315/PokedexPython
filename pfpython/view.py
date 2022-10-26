@@ -3,5 +3,6 @@ from django.template import loader
 
 from Pokedex.views import *
 
-def homepage(request):
-    return render(request, "home.html")
+def home(request):
+    last_pokemons = Pokemons.objects.order_by('-id')[0:3] 
+    return render(request, "home.html", {"last_pokemons":last_pokemons})

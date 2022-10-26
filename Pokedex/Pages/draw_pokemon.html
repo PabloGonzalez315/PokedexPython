@@ -1,71 +1,71 @@
-{%extends "home.html"%}
-
-{%block title%}
-Pokedex - Pokemon
-{%endblock%}
-
-{%block contenido%}
+{%extends "home.html"%} {%block title%} Pokedex - Pokemon {%endblock%} {%block contenido%}
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-
-        <ul class="nav navbar-nav">
-          <li><a href="/Pokedex/home/">Home</a></li>
-          <li class="active"><a href="/Pokedex/pokemons">Pokedex</a></li>
-          <li><a href="/Pokedex/about/">About us!</a></li>
-
-
-          {% if not request.user.is_authenticated %}
-          <li><a href="/Pokedex/login/">Login</a></li>
-          <li><a href="/Pokedex/register/">Sing Up!</a></li>
-          {% endif %}
-
-          {% if request.user.is_authenticated %}
-          <li><a href="/Pokedex/createpokemon/">Pokemon Uploader</a></li>
-          <li><a href="/Pokedex/my_pokemons">My Pokemons</a></li>
-          <li><a></a></li>
-          <li><a></a></li>
-          <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
-          <li><img src="{{user.avatar.imagen.url}}" style="height: 40px; width: 40px; "><li>
-          <li><a></a></li>
-          <li><a></a></li>
-          <li><a href="/Pokedex/edit_user/">Edit User</a></li> 
-          <li><a href="/Pokedex/logout">Log Out!</a></li> 
-              {% endif %}
-              
-          </ul>
-
-      </div><!--/.navbar-collapse -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+        aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-  </nav>
-    <section class="py-5">
-        <div class="container px-5 my-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{{pokemons.imagen.url}}" alt="..."/></div>
-                <div class="col-lg-6">
-                    <h1 class="fw-bolder">{{ pokemons.numero }}</h1>
-                    <h1 class="fw-bolder">{{ pokemons.nombre }}</h1>
-                    <h4 class="fw-bolder">Type - {{ pokemons.tipo1 }} | {{ pokemons.tipo2 }}</h4>
-                    <h4 class="fw-bolder">Ability - {{ pokemons.habilidad }}</h4>
-                    <h4 class="fw-bolder">Weakness - {{ pokemons.debilidad }}</h4>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/Pokedex/home/">Home</a></li>
+        <li class="active"><a href="/Pokedex/pokemons">Pokedex</a></li>
+        <li><a href="/Pokedex/about/">About us!</a></li>
 
-                    
+        {% if not request.user.is_authenticated %}
+        <li><a href="/Pokedex/login/">Login</a></li>
+        <li><a href="/Pokedex/register/">Sing Up!</a></li>
+        {% endif %} {% if request.user.is_authenticated %}
+        <li><a href="/Pokedex/createpokemon/">Pokemon Uploader</a></li>
+        <li><a href="/Pokedex/my_pokemons">My Pokemons</a></li>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li>
+          <h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3>
+        </li>
+        <li>
+          <img src="{{user.avatar.imagen.url}}" style="height: 40px; width: 40px" />
+        <li></li>
+        <li><a></a></li>
+        </li>
 
+        <li><a></a></li>
+        <li><a href="/Pokedex/edit_user/">Edit User</a></li>
+        <li><a href="/Pokedex/logout">Log Out!</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <!--/.navbar-collapse -->
+  </div>
+</nav>
+<div class="card enhanced2">
+  <div class="row g-0 cardPoke">
+    <div class="col-md-4">
 
-                    <h6>Date: <i>{{pokemons.fecha}}</i> | Added by: <i>{{pokemons.autor}}</i></h6>
-                    <br>
-                    <p class="lead fw-normal text-muted mb-0">{{ pokemons.descripcion|safe }}</p>
-                </div>                
-            </div>
-                <br>
-                <br>
-    
-{%endblock%}
+      <img class="img-fluid rounded-start" src="{{pokemons.imagen.url}}" alt="..." style="max-width: 400px" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="fw-bolder card-title">N° {{ pokemons.numero }}</h2>
+        <h2 class="fw-bolder card-title">{{ pokemons.nombre }}</h2>
+        <h4 class="fw-bolder card-text">Type:  {{ pokemons.tipo1 }} | {{ pokemons.tipo2 }}</h4>
+        <h4 class="fw-bolder card-text">Ability:  {{ pokemons.habilidad }}</h4>
+        <h4 class="fw-bolder card-text">Weakness: {{ pokemons.debilidad }}</h4>
+        <small class="text-muted">
+          <h6>Date: <i>{{pokemons.fecha}}</i> | Added by: <i>{{pokemons.autor}}</i></h6>
+          <br />
+          <p class="lead fw-normal text-muted mb-0">{{ pokemons.descripcion|safe }}</p>
+        </small>
+      </div>
+    </div>
+    <br />
+    <br />
+  </div>
+  <button class="btn btn-warning"  onClick="history.go(-1)">ir Atras</button>
+</div>
+
+    {%endblock%}

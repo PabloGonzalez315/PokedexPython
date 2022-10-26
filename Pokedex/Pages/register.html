@@ -1,13 +1,6 @@
 {% extends "home.html" %}
 {% load static %}
 {% block contenido %} 
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-
-<!-- Custom styles for this template -->
-<link rel="stylesheet" href="{%static 'css/jumbotron.css'%}">
-<body>
-
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -50,24 +43,32 @@
     </div>
   </nav>
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-   <nav class="jumbo-nav">
+  <nav class="jumbo-nav">
     <div class="navigation-wrapper">
-      <div class="navigation">
-        <div class="header-logo">
-          <a href="/Pokedex/home/">
-            <img src="{%static 'images/pokedex.webp'%}" />
-          </a>
+        <div class="navigation">
+            <div class="header-logo">
+                <a href="/Pokedex/home/">
+                    <img src="{%static 'images/pokedex.webp'%}" />
+                </a>
+            </div>
         </div>
-      </div>
+
+          <!-- Example row of columns -->
+          <div class="container">
+            <div class="row">
+                <div class="space">  
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
     
       <!-- Example row of columns -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="{%static 'images/register.png'%}" class="header-logo" alt="Register">
-            <form method="POST">
-            {% csrf_token %}
+      <div class = "formularios">
+        <img src="{%static 'images/register.png'%}" class="header-logo" alt="Register">
+        <form method="POST">
+          {% csrf_token %}
                 
 
                 <div class="form-outline mb-4">
@@ -107,13 +108,11 @@
                   <p><b>yo're alrealdy member? <a href="/Pokedex/login/">Log In!</a></b></p>
                 </div>
 
-              <br>
-              <br>
-              <br>
-                       
-            </form>
+                <br>
+                <br>
+                <br>
+                         
+              </form>
+          
           </div>
-        </div>
-      </div>
-  </nav>
   {% endblock %}
