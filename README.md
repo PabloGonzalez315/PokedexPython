@@ -150,6 +150,8 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 | [<img src="https://avatars.githubusercontent.com/u/111648308?v=4" width=115><br><sub>Herrera Omar</sub>](https://github.com/OHerrera1991) |  [<img src="https://avatars.githubusercontent.com/u/86387410?v=4" width=115><br><sub>Pablo González</sub>](https://github.com/PabloGonzalez315) |
 | :---: | :---: |
 
+Superusuario: Admin Contraseña: pokedex
+
 \*Version 1.0
 
 ![GITHUB](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
