@@ -55,13 +55,19 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 *   Change password: nos permite mediante un Formulario cambiar nuestra contraseña.
 
 ```bash
+├── Casos de prueba Pokedex.xlsx
 ├── db.sqlite3
+├── Link video.txt
 ├── manage.py
 ├── media
+│   ├── 001.png
+│   ├── 004.png
+│   ├── 007.png
+│   ├── 008.png
+│   ├── 025.png
 │   └── avatar
-│       ├── 004.png
-│       ├── 009.png
-│       └── pokemon1.png
+│       ├── 150.png
+│       └── 251.png
 ├── pfpython
 │   ├── asgi.py
 │   ├── __init__.py
@@ -139,11 +145,12 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 │   │   │   └── uploader.png
 │   │   └── js
 │   │       └── bootstrap.min.js
-│   ├── Static
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
-└── README.md
+├── README.md
+└── requirements.txt
+
 ```
 
 ### Autores ✒️
