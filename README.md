@@ -147,7 +147,7 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 ```
 
 ### Autores ✒️
-| [<img src="https://avatars.githubusercontent.com/u/111648308?v=4" width=115><br><sub>Herrera Omar</sub>](https://github.com/OHerrera1991) |  [<img src="https://avatars.githubusercontent.com/u/86387410?v=4" width=115><br><sub>Pablo González</sub>](https://github.com/PabloGonzalez315)(https://github.com/PabloGonzalez315)) |  [<img src="https://avatars.githubusercontent.com/u/91544872?v=4" width=115><br><sub>Génesys Rondón</sub>](https://github.com/genesysaluralatam) |
+| [<img src="https://avatars.githubusercontent.com/u/111648308?v=4" width=115><br><sub>Herrera Omar</sub>](https://github.com/OHerrera1991) |  [<img src="https://avatars.githubusercontent.com/u/86387410?v=4" width=115><br><sub>Pablo González</sub>](https://github.com/PabloGonzalez315)) |  [<img src="https://avatars.githubusercontent.com/u/91544872?v=4" width=115><br><sub>Génesys Rondón</sub>](https://github.com/genesysaluralatam) |
 | :---: | :---: | :---: |
 
 \*Version 1.0
