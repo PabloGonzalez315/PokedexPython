@@ -80,4 +80,7 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 
 * Gonzalez Pablo
 
+Superusuario: Admin
+Contraseña: pokedex
+
 *Version 1.0
