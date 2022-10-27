@@ -151,8 +151,7 @@ Banner de la pagina y los ultimos 3 Pokemons agregados por nuestros usuarios de 
 | :---: | :---: | 
 | :---: | :---: | 
 
-| [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Camila Fernanda Alves</sub>](https://github.com/camilafernanda) |  [<img src="https://avatars.githubusercontent.com/u/71970858?v=4" width=115><br><sub>Ellen Pimentel</sub>]([https://github.com/guilhermeonrails](https://github.com/ellenpimentel)) |  
-| :---: | :---: | :---: |
+
 
 \*Version 1.0
 
