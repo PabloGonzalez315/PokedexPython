@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-oua*w=%q4gt5t8hxsv=s0%qic!kwb-##z_elpw*!ruk4pov+2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'pfpython.urls'
@@ -118,10 +119,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_TMP = os.path.join(BASE_DIR, "static")
+
+os.makedirs(STATIC_ROOT, exist_ok=True)
+os.makedirs(STATIC_TMP, exist_ok=True)
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'Pokedex/static'),
+    os.path.join(BASE_DIR, 'static'),
     )
 
 # Default primary key field type
