@@ -1,1 +1,1 @@
-web: gunicorn pfpython.wsgi
+web gunicorn pfpython.wsgi:application --log-file -
